@@ -31,25 +31,6 @@ static void reverseArray(int[] intArray,int size){
 }
 3. Write a function that tests whether a string is a palindrome.
 Solution : 
-
-class Solution {
-    int isPalindrome(String S) {
-      char [] ans=new char[S.length()];
-      for(int i=0;i<S.length();i++){
-          ans[i]=S.charAt(i);
-      }
-      int start=0;
-      int end=S.length()-1;
-      while(start<end){
-          if(ans[start] != ans[end]){
-              return 0;
-          }
-          start++;
-          end--;
-      }
-      return 1;
-    }
-};
 class Main{
 public static void main(String[] args){
 String str="abba";
@@ -114,7 +95,7 @@ Solution :
 6. Write a function that combines two arrays by alternatingly taking elements, e.g. [a,b,c], [1,2,3] → [a,1,b,2,c,3].
 Solution : 
 #CPP
-vector<int> mergeArr(int arr1[],int arr2[],m,n){
+vector<int> mergeArr(int arr1[],int arr2[],int m,int n){
 	vector<int> ans(m+n);
 	int a1=0;
 	int a2=0;
@@ -425,32 +406,17 @@ printArray(arr)
 17. Given Unsorted array check whether elements are in Arithmetic Progression (Differnce between every 2 consecutive is same) if not return -1.
 Example : 1,2,3,4,5 are in A.P
 Solution : 
-
-
+#Python
+def checkAP(arr):
+	arr.sort()
+	diff=arr[1]-arr[0]
+	for i in range(2,len(arr)):
+		if((arr[i]-arr[i-1])!=diff):
+			return -1
+	return 1 
+		
 18. Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. You must write an algorithm with O(log n) runtime complexity.
 Solution : 
-//java
- int binarysearch(int arr[], int n, int k) {
-        int start=0;
-        int end=n-1;
-        int ans=0;
-        while(start<=end){
-            int mid =start +(end-start)/2;
-            if(arr[mid]<k){
-                start=mid+1;
-            }
-            if(arr[mid]>k){
-                end=mid-1;
-            }
-            if(arr[mid]==k) {
-              return mid;
-            }
-            ans=mid;
-        }
-        return ans+1;
-    }
-    
-    
 #CPP
 class Solution{
 public:
